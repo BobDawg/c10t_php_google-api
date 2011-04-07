@@ -543,7 +543,8 @@ function initialize(id, opt, modes) {
   var UrlVars = getUrlVars();
   if(UrlVars[\'ll\']) {
     var latilong = UrlVars[\'ll\'].split(\',\');
-    map.setCenter(new google.maps.LatLng(latilong[0] + spawn.lat, latilong[1] + spawn.lng, true));
+    //map.setCenter(new google.maps.LatLng(latilong[0] + spawn.lat, latilong[1] + spawn.lng, true));
+    map.setCenter(new google.maps.LatLng(latilong[0], latilong[1], true));
   }
   if(UrlVars[\'z\']) {
     map.setZoom(parseInt(UrlVars[\'z\']));
@@ -555,14 +556,15 @@ function initialize(id, opt, modes) {
 
 
 function makeLink(map) {
-  var spawnRelCoord = new google.maps.LatLng(map.getCenter().lat() - spawn.lat, map.getCenter().lng() - spawn.lng, true);
-  var text = "?ll=" + spawnRelCoord.toUrlValue(3)
+  //var spawnRelCoord = new google.maps.LatLng(map.getCenter().lat() - spawn.lat, map.getCenter().lng() - spawn.lng, true);
+  //var text = "?ll=" + spawnRelCoord.toUrlValue(3)
+  var text = "?ll=" + map.getCenter().toUrlValue(3)
            + "&z=" + map.getZoom()
            + "&t=" + map.getMapTypeId();
-  var addr = location.href.substring(0,location.href.lastIndexOf(location.search))
-           + "?ll=" + spawnRelCoord.toUrlValue(3)
-           + "&z="  + map.getZoom()
-           + "&t="  + map.getMapTypeId();
+  var addr = location.href.substring(0,location.href.lastIndexOf(location.search)) + text;
+           //+ "?ll=" + spawnRelCoord.toUrlValue(3)
+           //+ "&z="  + map.getZoom()
+           //+ "&t="  + map.getMapTypeId();
   document.getElementById("link").href      = addr;
   document.getElementById("link").innerHTML = text;
 }

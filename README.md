@@ -5,6 +5,10 @@ c10t_php_google-api is an updated and enhanced version of the google-api.php scr
 
 -- BobDawg
 
+Examples
+-------
+BobDawg's Minecraft Server: <http://bobdawg.org/minecraft/Latest_Overhead_Map/>
+
 Requirements
 ------------
 
