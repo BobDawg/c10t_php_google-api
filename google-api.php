@@ -881,6 +881,11 @@ body {
   background: -o-linear-gradient(top,  #fefefe,  #f3f3f3); /* for Opera 11.10 beta+ (Presto 2.8.116+) */
 }
 
+/* hide google logo */
+#map_canvas div div a div {
+  display: none;
+}
+
 /* gmaps scalebar text style */
 div.gmnoprint div[style~="absolute;"][style~="ltr;"] {
   font-weight: bold;
